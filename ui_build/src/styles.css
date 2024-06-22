@@ -1,0 +1,73 @@
+app-root,
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* FONTS */
+
+/* BeaufortforLOL */
+@font-face {
+  font-family: "BeaufortforLOL";
+  src: url("./assets/fonts/BeaufortforLOL/BeaufortforLOL-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BeaufortforLOL";
+  src: url("./assets/fonts/BeaufortforLOL/BeaufortforLOL-Heavy.ttf")
+    format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BeaufortforLOL";
+  src: url("./assets/fonts/BeaufortforLOL/BeaufortforLOL-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BeaufortforLOL";
+  src: url("./assets/fonts/BeaufortforLOL/BeaufortforLOL-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BeaufortforLOL";
+  src: url("./assets/fonts/BeaufortforLOL/BeaufortforLOL-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Spiegel */
+@font-face {
+  font-family: "Spiegel";
+  src: url("./assets/fonts/Spiegel/Spiegel_TT_Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Spiegel";
+  src: url("./assets/fonts/Spiegel/Spiegel_TT_SemiBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Spiegel";
+  src: url("./assets/fonts/Spiegel/Spiegel_TT_Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

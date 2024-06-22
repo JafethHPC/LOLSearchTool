@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="header-container">
+    <!-- NAVIGATION/LEFT CONTAINER -->
+    <div class="nav-container">
+      <img class="lol-logo" src="../../../assets/images/header/lol-logo.png" />
+
+      <div class="search-container">
+        <img
+          class="search-icon"
+          src="../../../assets/images/header/magnifying-glass-icon.png"
+        />
+        <input
+          class="search-bar"
+          placeholder="Search"
+          [(ngModel)]="searchPlayerName"
+          (keydown.enter)="searchPlayer(searchPlayerName)"
+        />
+      </div>
+
+      <div class="tab-container">
+        <p class="nav-tab" [routerLink]="['/']">HOME</p>
+        <p class="nav-tab">CHAMPIONS</p>
+        <p class="nav-tab">LEADERBOARDS</p>
+      </div>
+    </div>
+
+    <!-- PROFILE/RIGHT CONTAINER -->
+    <div class="profile-container"></div>
+  </div>
+  <!-- DIVIDER -->
+  <div class="divider"></div>
+</div>
