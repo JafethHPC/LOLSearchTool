@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="main">
+  <!-- TITLE -->
+  <div class="logo-container">
+    <img
+      class="logo"
+      src="../../assets/images/home/League-of-Legends-Logo.png"
+    />
+  </div>
+
+  <!-- SEARCH BAR -->
+  <div class="search">
+    <div class="search-container">
+      <img
+        class="search-icon"
+        src="../../../assets/images/header/magnifying-glass-icon.png"
+      />
+      <input
+        class="search-bar"
+        placeholder="Search"
+        [(ngModel)]="searchPlayerName"
+        (keydown.enter)="searchPlayer(searchPlayerName)"
+      />
+      <button class="search-btn" (click)="searchPlayer(searchPlayerName)">
+        SEARCH
+      </button>
+    </div>
+  </div>
+
+  <!-- RECENTLY SEARCHED -->
+  <div class="recently-searched-container">
+    <div class="title-container">
+      <p class="title">RECENTLY SEARCHED</p>
+      <div class="divider"></div>
+    </div>
+    <div class="player-container"></div>
+  </div>
+</div>
+
+<app-footer></app-footer>
