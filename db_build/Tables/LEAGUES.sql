@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS Leagues (
     `LP` INT,
     `Wins` INT,
     `Losses` INT,
-    `SeasonSplit` ENUM('Spring', 'Summer'), 
     `GamesPlayed` INT,
     `Hotstreak` BOOLEAN,
     FOREIGN KEY (`PlayerID`) REFERENCES Players(`PlayerID`),
