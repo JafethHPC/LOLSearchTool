@@ -1,32 +1,45 @@
 package com.lol.lolsearchtool.model.entity;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "Seasons")
 public class SeasonEntity {
-    @Id
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "SeasonID")
-    private int id;
+    private Integer seasonID;
 
     @Column(name = "Name", nullable = false)
     private String name;
 
     @Column(name = "StartDate")
-    private LocalDate startDate;
+    private LocalDateTime startDate;
 
     @Column(name = "EndDate")
-    private LocalDate endDate;
+    private LocalDateTime endDate;
 
-	public int getId() {
-		return id;
+    public SeasonEntity() {
+		super();
+    }
+    
+    public SeasonEntity(String name, LocalDateTime startDate, LocalDateTime endDate) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+	public Integer getSeasonID() {
+		return seasonID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setSeasonID(Integer seasonID) {
+		this.seasonID = seasonID;
 	}
 
 	public String getName() {
@@ -37,21 +50,22 @@ public class SeasonEntity {
 		this.name = name;
 	}
 
-	public LocalDate getStartDate() {
+	public LocalDateTime getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDate startDate) {
+	public void setStartDate(LocalDateTime startDate) {
 		this.startDate = startDate;
 	}
 
-	public LocalDate getEndDate() {
+	public LocalDateTime getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	}
+    
     
     
 }

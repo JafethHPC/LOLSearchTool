@@ -6,20 +6,31 @@ import lombok.Data;
 @Entity
 @Table(name = "Tiers")
 public class TierEntity {
-    @Id
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TierID")
-    private int id;
+    private Integer tierID;
 
     @Column(name = "Name", nullable = false)
     private String name;
 
-	public int getId() {
-		return id;
+	public TierEntity(Integer tierID, String name) {
+		super();
+		this.tierID = tierID;
+		this.name = name;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public TierEntity() {
+		super();
+	}
+
+	public Integer getTierID() {
+		return tierID;
+	}
+
+	public void setTierID(Integer tierID) {
+		this.tierID = tierID;
 	}
 
 	public String getName() {
@@ -29,6 +40,7 @@ public class TierEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
+
     
     
 }

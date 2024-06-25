@@ -1,4 +1,5 @@
 package com.lol.lolsearchtool.model.entity;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import jakarta.persistence.*;
@@ -6,50 +7,69 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Players")
 public class PlayerEntity {
-    
-    @Id
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PlayerID")
-    private int id;
+    private Integer playerID;
 
-    @Column(name = "UserID")
-    private int userId;
+    @ManyToOne
+    @JoinColumn(name = "UserID")
+    private UserEntity user;
 
-    @Column(name = "SummonerName")
+    @Column(name = "SummonerName", nullable = false, unique = true)
     private String summonerName;
 
-    @Column(name = "PUUID")
+    @Column(name = "PUUID", nullable = false, unique = true)
     private String puuid;
 
-    @Column(name = "AccountID")
-    private String accountId;
+    @Column(name = "AccountID", nullable = false, unique = true)
+    private String accountID;
 
-    @Column(name = "SummonerID")
-    private String summonerId;
+    @Column(name = "SummonerID", nullable = false, unique = true)
+    private String summonerID;
 
-    @Column(name = "Level")
-    private int level;
+    @Column(name = "Level", nullable = false)
+    private Integer level;
 
-    @Column(name = "SummonerIcon")
+    @Column(name = "SummonerIcon", nullable = false)
     private String summonerIcon;
 
-    @Column(name = "Updated")
-    private String updated;
+    @Column(name = "Updated", nullable = false)
+    private LocalDateTime updated;
 
-	public int getId() {
-		return id;
+	public PlayerEntity(Integer playerID, UserEntity user, String summonerName, String puuid, String accountID,
+			String summonerID, Integer level, String summonerIcon, LocalDateTime updated) {
+		super();
+		this.playerID = playerID;
+		this.user = user;
+		this.summonerName = summonerName;
+		this.puuid = puuid;
+		this.accountID = accountID;
+		this.summonerID = summonerID;
+		this.level = level;
+		this.summonerIcon = summonerIcon;
+		this.updated = updated;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public PlayerEntity() {
+		super();
 	}
 
-	public int getUserId() {
-		return userId;
+	public Integer getPlayerID() {
+		return playerID;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setPlayerID(Integer playerID) {
+		this.playerID = playerID;
+	}
+
+	public UserEntity getUser() {
+		return user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
 	}
 
 	public String getSummonerName() {
@@ -68,27 +88,27 @@ public class PlayerEntity {
 		this.puuid = puuid;
 	}
 
-	public String getAccountId() {
-		return accountId;
+	public String getAccountID() {
+		return accountID;
 	}
 
-	public void setAccountId(String accountId) {
-		this.accountId = accountId;
+	public void setAccountID(String accountID) {
+		this.accountID = accountID;
 	}
 
-	public String getSummonerId() {
-		return summonerId;
+	public String getSummonerID() {
+		return summonerID;
 	}
 
-	public void setSummonerId(String summonerId) {
-		this.summonerId = summonerId;
+	public void setSummonerID(String summonerID) {
+		this.summonerID = summonerID;
 	}
 
-	public int getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 
@@ -100,13 +120,14 @@ public class PlayerEntity {
 		this.summonerIcon = summonerIcon;
 	}
 
-	public String getUpdated() {
+	public LocalDateTime getUpdated() {
 		return updated;
 	}
 
-	public void setUpdated(String updated) {
+	public void setUpdated(LocalDateTime updated) {
 		this.updated = updated;
 	}
 
+    
     
 }

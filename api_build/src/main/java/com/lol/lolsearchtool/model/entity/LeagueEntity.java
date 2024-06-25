@@ -3,46 +3,144 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-@Entity
 @Table(name = "Leagues")
 public class LeagueEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LeagueID")
-    private int id;
+    private Integer leagueID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PlayerID")
+    @ManyToOne
+    @JoinColumn(name = "PlayerID", nullable = false)
     private PlayerEntity player;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "QueueTypeID")
+    @ManyToOne
+    @JoinColumn(name = "QueueTypeID", nullable = false)
     private QueueTypeEntity queueType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TierID")
+    @ManyToOne
+    @JoinColumn(name = "TierID", nullable = false)
     private TierEntity tier;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SeasonID")
+    @ManyToOne
+    @JoinColumn(name = "SeasonID", nullable = false)
     private SeasonEntity season;
 
     @Column(name = "LP")
-    private int lp;
+    private Integer lp;
 
     @Column(name = "Wins")
-    private int wins;
+    private Integer wins;
 
     @Column(name = "Losses")
-    private int losses;
-
-    @Column(name = "SeasonSplit")
-    private String seasonSplit;
+    private Integer losses;
 
     @Column(name = "GamesPlayed")
-    private int gamesPlayed;
+    private Integer gamesPlayed;
 
     @Column(name = "Hotstreak")
     private Boolean hotstreak;
+
+	public LeagueEntity(Integer leagueID, PlayerEntity player, QueueTypeEntity queueType, TierEntity tier,
+			SeasonEntity season, Integer lp, Integer wins, Integer losses, Integer gamesPlayed,
+			Boolean hotstreak) {
+		super();
+		this.leagueID = leagueID;
+		this.player = player;
+		this.queueType = queueType;
+		this.tier = tier;
+		this.season = season;
+		this.lp = lp;
+		this.wins = wins;
+		this.losses = losses;
+		this.gamesPlayed = gamesPlayed;
+		this.hotstreak = hotstreak;
+	}
+
+	public LeagueEntity() {
+		super();
+	}
+
+	public Integer getLeagueID() {
+		return leagueID;
+	}
+
+	public void setLeagueID(Integer leagueID) {
+		this.leagueID = leagueID;
+	}
+
+	public PlayerEntity getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(PlayerEntity player) {
+		this.player = player;
+	}
+
+	public QueueTypeEntity getQueueType() {
+		return queueType;
+	}
+
+	public void setQueueType(QueueTypeEntity queueType) {
+		this.queueType = queueType;
+	}
+
+	public TierEntity getTier() {
+		return tier;
+	}
+
+	public void setTier(TierEntity tier) {
+		this.tier = tier;
+	}
+
+	public SeasonEntity getSeason() {
+		return season;
+	}
+
+	public void setSeason(SeasonEntity season) {
+		this.season = season;
+	}
+
+	public Integer getLp() {
+		return lp;
+	}
+
+	public void setLp(Integer lp) {
+		this.lp = lp;
+	}
+
+	public Integer getWins() {
+		return wins;
+	}
+
+	public void setWins(Integer wins) {
+		this.wins = wins;
+	}
+
+	public Integer getLosses() {
+		return losses;
+	}
+
+	public void setLosses(Integer losses) {
+		this.losses = losses;
+	}
+
+	public Integer getGamesPlayed() {
+		return gamesPlayed;
+	}
+
+	public void setGamesPlayed(Integer gamesPlayed) {
+		this.gamesPlayed = gamesPlayed;
+	}
+
+	public Boolean getHotstreak() {
+		return hotstreak;
+	}
+
+	public void setHotstreak(Boolean hotstreak) {
+		this.hotstreak = hotstreak;
+	}
+    
+    
 }

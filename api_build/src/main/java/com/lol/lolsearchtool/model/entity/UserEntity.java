@@ -2,38 +2,52 @@ package com.lol.lolsearchtool.model.entity;
 
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Table(name = "Users")
 public class UserEntity {
-	
-    @Id
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "UserID")
-    private int id;
+    private Integer userID;
 
-    @Column(name = "Username")
+    @Column(name = "Username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "Email")
+    @Column(name = "Email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "Password")
+    @Column(name = "Password", nullable = false)
     private String password;
 
-    @Column(name = "Lastlogin")
-    private String lastLogin;
+    @Column(name = "RegistrationDate", nullable = false, updatable = false)
+    private LocalDateTime registrationDate;
 
-    @Column(name = "RegistrationDate")
-    private String registrationDate;
-    
-	public int getId() {
-		return id;
+    @Column(name = "LastLogin")
+    private LocalDateTime lastLogin;
+
+
+    public UserEntity() {
+		super();
+    }
+
+    public UserEntity(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.registrationDate = LocalDateTime.now();
+    }
+
+	public Integer getUserID() {
+		return userID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUserID(Integer userID) {
+		this.userID = userID;
 	}
 
 	public String getUsername() {
@@ -60,19 +74,19 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public String getRegistrationDate() {
+	public LocalDateTime getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(String registrationDate) {
+	public void setRegistrationDate(LocalDateTime registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 
-	public String getLastLogin() {
+	public LocalDateTime getLastLogin() {
 		return lastLogin;
 	}
 
-	public void setLastLogin(String lastLogin) {
+	public void setLastLogin(LocalDateTime lastLogin) {
 		this.lastLogin = lastLogin;
 	}
     

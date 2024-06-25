@@ -6,20 +6,35 @@ import lombok.Data;
 @Entity
 @Table(name = "QueueTypes")
 public class QueueTypeEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "QueueTypeID")
-    private int id;
+    private Integer queueTypeID;
 
-    @Column(name = "Name")
+    @Column(name = "Name", nullable = false)
     private String name;
 
-	public int getId() {
-		return id;
+    @Column(name = "Description")
+    private String description;
+
+	public QueueTypeEntity(Integer queueTypeID, String name, String description) {
+		super();
+		this.queueTypeID = queueTypeID;
+		this.name = name;
+		this.description = description;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public QueueTypeEntity() {
+		super();
+	}
+
+	public Integer getQueueTypeID() {
+		return queueTypeID;
+	}
+
+	public void setQueueTypeID(Integer queueTypeID) {
+		this.queueTypeID = queueTypeID;
 	}
 
 	public String getName() {
@@ -30,5 +45,14 @@ public class QueueTypeEntity {
 		this.name = name;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+    
     
 }
