@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lol</groupId>
-	<artifactId>league-of-legends-stats</artifactId>
+	<artifactId>lolsearchtool</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>league-of-legends-stats</name>
+	<name>lolsearchtool</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
