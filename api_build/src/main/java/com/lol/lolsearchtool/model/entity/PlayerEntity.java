@@ -28,6 +28,9 @@ public class PlayerEntity {
 
     @Column(name = "SummonerID", nullable = false, unique = true)
     private String summonerID;
+    
+    @Column(name = "Region", nullable = false)
+    private String Region;
 
     @Column(name = "Level", nullable = false)
     private Integer level;
@@ -39,7 +42,7 @@ public class PlayerEntity {
     private LocalDateTime updated;
 
 	public PlayerEntity(Integer playerID, UserEntity user, String summonerName, String puuid, String accountID,
-			String summonerID, Integer level, String summonerIcon, LocalDateTime updated) {
+			String summonerID, String region, Integer level, String summonerIcon, LocalDateTime updated) {
 		super();
 		this.playerID = playerID;
 		this.user = user;
@@ -47,6 +50,7 @@ public class PlayerEntity {
 		this.puuid = puuid;
 		this.accountID = accountID;
 		this.summonerID = summonerID;
+		Region = region;
 		this.level = level;
 		this.summonerIcon = summonerIcon;
 		this.updated = updated;
@@ -54,6 +58,7 @@ public class PlayerEntity {
 
 	public PlayerEntity() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getPlayerID() {
@@ -104,6 +109,14 @@ public class PlayerEntity {
 		this.summonerID = summonerID;
 	}
 
+	public String getRegion() {
+		return Region;
+	}
+
+	public void setRegion(String region) {
+		Region = region;
+	}
+
 	public Integer getLevel() {
 		return level;
 	}
@@ -127,6 +140,7 @@ public class PlayerEntity {
 	public void setUpdated(LocalDateTime updated) {
 		this.updated = updated;
 	}
+
 
     
     

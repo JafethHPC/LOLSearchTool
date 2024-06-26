@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS Players (
     `PUUID` VARCHAR(255) NOT NULL UNIQUE,
     `AccountID` VARCHAR(255) NOT NULL UNIQUE,
     `SummonerID` VARCHAR(255) NOT NULL UNIQUE,
+    `Region` VARCHAR(50) NOT NULL,
     `Level` INT NOT NULL,
     `SummonerIcon` VARCHAR(255) NOT NULL,
     `Updated` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -141,3 +142,4 @@ CREATE TABLE IF NOT EXISTS SummonerSpells (
 -- Index for Faster Queries 
 CREATE INDEX idx_summoner_name ON Players (SummonerName);
 CREATE INDEX idx_match_timestamp ON MatchHistory (Timestamp);
+CREATE INDEX idx_player_match ON PlayerMatch (PlayerID, MatchID);

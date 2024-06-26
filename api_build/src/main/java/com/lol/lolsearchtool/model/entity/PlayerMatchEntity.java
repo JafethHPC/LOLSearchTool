@@ -1,5 +1,6 @@
 package com.lol.lolsearchtool.model.entity;
 import jakarta.persistence.*;
+
 import lombok.Data;
 
 @Data
