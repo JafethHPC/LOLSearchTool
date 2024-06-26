@@ -2,20 +2,19 @@ package com.lol.lolsearchtool.service;
 
 import com.lol.lolsearchtool.model.entity.UserEntity;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-@Service
 public interface UserService {
+    UserEntity registerUser(String username, String email, String password);
+    UserEntity loginUser(String username, String password);
 
-  UserEntity getUserById(int userId);
+    // Password Management
+    void updatePassword(Integer userId, String oldPassword, String newPassword);
 
-  List<UserEntity> getAllUsers();
+    // Profile Management
+    void updateEmail(Integer userId, String newEmail);
+    void updateLastLogin(Integer userId, LocalDateTime lastLogin);
 
-  UserEntity createUser(UserEntity user);
-
-  @Transactional
-  void deleteUser(int userId);
+    // User Deletion
+    void deleteUserbyUserId(Integer userId);
 }
