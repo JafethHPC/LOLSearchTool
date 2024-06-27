@@ -1,22 +1,15 @@
 package com.lol.lolsearchtool.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.stereotype.Service;
-
 import com.lol.lolsearchtool.model.entity.TierEntity;
 import com.lol.lolsearchtool.repository.TierRepository;
 import com.lol.lolsearchtool.service.TierService;
+import org.springframework.stereotype.Service;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TierServiceImpl implements TierService {
-	
-	@PersistenceContext
-	private EntityManager entityManager;
 
     private final TierRepository tierRepository;
 
@@ -24,12 +17,13 @@ public class TierServiceImpl implements TierService {
         this.tierRepository = tierRepository;
     }
 
-    public TierEntity getTierById(Long tierId) {
-        Optional<TierEntity> tierOptional = tierRepository.findById(tierId);
-        return tierOptional.orElse(null);
+    @Override
+    public List<TierEntity> getAllTiers() {
+        return tierRepository.findAllByOrderByNameAsc();
     }
 
-    public List<TierEntity> getAllTiers() {
-        return tierRepository.findAll();
+    @Override
+    public Optional<TierEntity> getTierByName(String name) {
+        return tierRepository.findByNameIgnoreCase(name);
     }
 }
