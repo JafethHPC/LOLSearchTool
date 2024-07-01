@@ -10,5 +10,6 @@ public interface PlayerService {
     PlayerEntity getPlayerById(int playerId);
     PlayerEntity saveOrUpdatePlayer(PlayerEntity player);
     List<PlayerEntity> getAllPlayers();
-    PlayerEntity getPlayerBySummonerId(String summonerId);
+    PlayerEntity getPlayerByPuuid(String puuid); 
+    PlayerEntity getPlayerBySummonerNameAndRegion(String summonerName, String region);
 }

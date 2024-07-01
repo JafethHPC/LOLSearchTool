@@ -1,15 +1,19 @@
 package com.lol.lolsearchtool.service;
 
+import com.lol.lolsearchtool.model.entity.LeagueEntity;
+import com.lol.lolsearchtool.model.entity.PlayerEntity;
+import com.lol.lolsearchtool.model.entity.QueueTypeEntity;
+import com.lol.lolsearchtool.model.entity.SeasonEntity;
+import com.lol.lolsearchtool.model.entity.TierEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
-import com.lol.lolsearchtool.model.entity.LeagueEntity;
-import com.lol.lolsearchtool.model.entity.QueueTypeEntity;
-
-@Service
 public interface LeagueService {
-	LeagueEntity saveOrUpdateLeague(LeagueEntity league);
-	List<LeagueEntity> getLeaguesByPlayerIdAndQueueType(int playerId, QueueTypeEntity queueType);
-	List<LeagueEntity> getLeaguesByPlayerId(int playerId);
+    List<LeagueEntity> getLeaguesByPlayer(PlayerEntity player);
+    Page<LeagueEntity> getLeaguesBySeasonAndTier(SeasonEntity season, TierEntity tier, Pageable pageable);
+    Page<LeagueEntity> getLeaguesBySeason(SeasonEntity season, Pageable pageable);
+    LeagueEntity getLeagueByPlayerAndQueueTypeAndSeason(PlayerEntity player, QueueTypeEntity queueType, SeasonEntity season);
 }
+
