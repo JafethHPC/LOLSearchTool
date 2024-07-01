@@ -15,4 +15,6 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Integer> {
     // Find player by puuid
     Optional<PlayerEntity> findByPuuid(String puuid);
 
+	Optional<PlayerEntity> getPlayerBySummonerNameAndRegion(String summonerName, String region);
+
 }
