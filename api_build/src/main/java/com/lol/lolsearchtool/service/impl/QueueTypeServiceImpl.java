@@ -1,35 +1,26 @@
 package com.lol.lolsearchtool.service.impl;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.stereotype.Service;
-
 import com.lol.lolsearchtool.model.entity.QueueTypeEntity;
 import com.lol.lolsearchtool.repository.QueueTypeRepository;
 import com.lol.lolsearchtool.service.QueueTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import java.util.NoSuchElementException;
 
 @Service
 public class QueueTypeServiceImpl implements QueueTypeService {
-	
-	@PersistenceContext
-	private EntityManager entityManager;
 
     private final QueueTypeRepository queueTypeRepository;
 
+    @Autowired
     public QueueTypeServiceImpl(QueueTypeRepository queueTypeRepository) {
         this.queueTypeRepository = queueTypeRepository;
     }
 
+    @Override
     public QueueTypeEntity getQueueTypeById(Long queueTypeId) {
-        Optional<QueueTypeEntity> queueTypeOptional = queueTypeRepository.findById(queueTypeId);
-        return queueTypeOptional.orElse(null);
-    }
-
-    public List<QueueTypeEntity> getAllQueueTypes() {
-        return queueTypeRepository.findAll();
+        return queueTypeRepository.findById(queueTypeId.intValue())
+                .orElseThrow(() -> new NoSuchElementException("Queue type not found with ID: " + queueTypeId));
     }
 }
